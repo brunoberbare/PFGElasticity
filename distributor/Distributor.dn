@@ -47,8 +47,8 @@ component provides App requires io.Output out, data.StringUtil strUtil, data.Int
 	}
 
 	void perception() {
-		//char jsonPD[] = perception.getPerceptionData()
-		//out.println("$(debugMSG) $(jsonPD)")
+		// char jsonPD[] = perception.getPerceptionData()
+		// out.println("$(debugMSG) $(jsonPD)")
 		PerceptionData pD[] = encoder.jsonToArray(perception.getPerceptionData(), typeof(PerceptionData[]), null)
 		for (int i = 0; i < pD.arrayLength; i++) {
 			for (int cMetrics = 0; cMetrics < pD[i].metrics.arrayLength; cMetrics++) {

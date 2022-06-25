@@ -4,7 +4,7 @@ data ListItem{
 	ListItem prev
 }
 
-component provides List:heap(Destructor, AdaptEvents) {
+component provides data.adt.List:heap(Destructor, AdaptEvents) {
 	
 	ListItem list
 	ListItem listEnd
