@@ -129,7 +129,8 @@ component provides data.adt.List:heap(Destructor, AdaptEvents) requires io.Outpu
             for (int i = 0; i < length; i++) {
                 items[i] = sortedHeapCopy[i]
             }
-            return items
+            Data item[] = new Data[](items[0])
+            return item
         }
     }
 
