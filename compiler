@@ -14,3 +14,23 @@ echo
 echo Compiling client...
 cd ../client
 dnc . -v
+
+echo
+echo Compiling constant implementation...
+cd ../constant
+dnc . -v
+
+echo
+echo Compiling readn implementation...
+cd ../readn
+dnc . -v
+
+echo
+echo Compiling writen implementation...
+cd ../writen
+dnc . -v
+
+echo
+echo Compiling readn-writen implementation...
+cd ../readn-writen
+dnc . -v
