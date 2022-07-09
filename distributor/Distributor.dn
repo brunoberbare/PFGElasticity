@@ -153,7 +153,7 @@ component provides App requires io.Output out, data.StringUtil strUtil, data.Int
 			for (int confPointer = 0; confPointer < configs.arrayLength; confPointer++) {
 				bool remote = false
 				for (int distProxy = 0; distProxy < distributedProxies.arrayLength; distProxy++) {
-					if (strUtil.find(configs[confPointer].string, distributedProxies[distProxy].string) 
+					if (strUtil.find(configs[confPointer].string, distributedProxies[distProxy].string)
 						!= StringUtil.NOT_FOUND) {
 						remoteConfigs = new String[](remoteConfigs, configs[confPointer])
 						remote = true

@@ -1,33 +1,27 @@
-component provides App requires io.Output out, net.http.HTTPRequest http {
+component provides App requires io.Output out, net.http.HTTPRequest http, data.IntUtil iu {
 	char server[] = "localhost:8080"
 	// char server[] = "35.193.124.208:5000"
 	
 	int App:main(AppParam params[]) {
 
-		HTTPResponse resp = http.post(new char[]("http://", server, "/add"), null, new char[]("1"))
-		out.println("$(resp.content)")
-		
-		resp = http.post(new char[]("http://", server, "/add"), null, new char[]("2"))
-		out.println("$(resp.content)")
-		
-		resp = http.post(new char[]("http://", server, "/add"), null, new char[]("3"))
-		out.println("$(resp.content)")
-		
-		resp = http.post(new char[]("http://", server, "/add"), null, new char[]("4"))
-		out.println("$(resp.content)")
-		
-		resp = http.post(new char[]("http://", server, "/add"), null, new char[]("5"))
-		out.println("$(resp.content)")
-		
-		resp = http.post(new char[]("http://", server, "/add"), null, new char[]("6"))
-		out.println("$(resp.content)")
-		
-		resp = http.post(new char[]("http://", server, "/add"), null, new char[]("7"))
-		out.println("$(resp.content)")
-		
-		resp = http.post(new char[]("http://", server, "/add"), null, new char[]("8"))
-		out.println("$(resp.content)")
-		
+		int start = 1
+		int end = 10
+
+		HTTPResponse resp
+
+		if (params.arrayLength == 1) {
+			end = iu.intFromString(params[0].string)
+		} else if (params.arrayLength > 1) {
+			start = iu.intFromString(params[0].string)
+			end = iu.intFromString(params[1].string)
+		}
+
+		out.println("Adding values from $(start) to $(end) into list")
+
+		for (int i = start; i <= end; i++) {
+			resp = http.post(new char[]("http://", server, "/add"), null, new char[](iu.makeString(i)))
+			out.println("$(resp.content)")
+		}
 		return 0
 	}
 }

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: remote-dist
-        image: docker.io/robertovrf/remote-dist:all
+        image: docker.io/brunoberbare/remote-dist-readn-writen:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 2011

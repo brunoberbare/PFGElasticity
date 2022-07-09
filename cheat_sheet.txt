@@ -9,3 +9,15 @@ docker rmi $(docker images -q)
 
 # kubernetes
 kubectl expose deployment distributor --type LoadBalancer --port 5000 --target-port 5000
+
+
+---------- Enter pod and watch logs ----------
+
+Get pod name:
+$ kubectl get pod
+
+Exec and enter pod:
+$ kubectl exec -it <pod-name> /bin/bash
+
+Inside pod watch logs:
+$ tail -f remote.log
